@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
+
 import styles from '@/styles/Form.module.css'
 import OTPInput, { ResendOTP } from "otp-input-react";
-import dynamic from 'next/dynamic'
- 
-const VerificationPage = ({setPage}) => {
+import {BiArrowBack} from 'react-icons/bi'
+
+import verifyOTP from '../../firebase/firestore/verifyOTP';
+
+const VerificationPage = ({setPage, data}) => {
    const [OTP, setOTP] = useState("");
    const [isResendDisabled, setIsResendDisabled] = useState(false);
-   
+   const router = useRouter();
    const renderButton = (buttonProps) => {
       return <button className={!isResendDisabled? styles.resendButtonDisabled : styles.resendButton}{...buttonProps}>Resend OTP</button>;
    };
@@ -18,19 +20,30 @@ const VerificationPage = ({setPage}) => {
       </button>;
    };
 
-   const handleForm = (e) => {
+   const handleForm = async (e) => {
       e.preventDefault();
       console.log(OTP);
+      
+      if (OTP.length === 6) {
+      const {result, error} = await verifyOTP(OTP);
+      console.log(result, error);
+      if (result) {
+            window.user = result.user
+            router.push('/submitted')
+      }
+      }
    }
 
+   
    return (
       <main className={`${styles.main}`}>
          <form className={styles.otpForm} onSubmit={handleForm}>
+            <BiArrowBack className={styles.backButton} onClick={() => setPage(1)}/>
             <div className={styles.otpHeading}>Please Enter the OTP</div>
             <div className={styles.formGroup}>
 
             </div>
-            <div className={styles.formGroup}>
+            <div className={styles.formGroup} style={{alignItems: "center"}}>
                <OTPInput value={OTP} onChange={setOTP} autoFocus OTPLength={6} otpType="number" disabled={false}
                   style={{ maxWidth: "20rem" }}
                   inputStyles={{
@@ -54,7 +67,7 @@ const VerificationPage = ({setPage}) => {
                      marginTop: "0.5rem",
                   }} />
             </div>
-            <div className={styles.formGroup}>
+            <div className={styles.formGroup} style={{alignItems: "center"}}>
                <button className={styles.submitButton} type="submit">Verify Phone Number</button>
             </div>
          </form>

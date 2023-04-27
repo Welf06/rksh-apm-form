@@ -1,15 +1,16 @@
-.form{
+.form, .otpForm, .submitBox{
    padding: 2.5rem;
    border-radius: 0.25rem;
    border: 1px solid #ccc;
    background: #fff;
+   color: #000000;
    font-size: 1rem;
    font-family: inherit;
    transition: border-color 200ms;
-   max-width: 25rem;
+   max-width: 30rem;
    margin: 10rem auto;
  } @media (max-width: 768px) {
-   .form{
+   .form, .otpForm, .submitBox{
      margin: 5rem auto;
    }
  }
@@ -71,31 +72,18 @@
    color: #333;
  }
 
- .otpForm{
-   padding: 2.5rem;
-   border-radius: 0.25rem;
-   border: 1px solid #ccc;
-   background: #fff;
-   font-size: 1rem;
-   font-family: inherit;
-   transition: border-color 200ms;
-   max-width: 25rem;
-   margin: 10rem auto;
-   text-align: center;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
- } @media (max-width: 768px) {
-   .otpForm{
-     margin: 5rem auto;
-   }
- }
-
- .otpHeading{
+ .otpHeading, .heading{
    font-size: 1.5rem;
    margin-bottom: 1rem;
    color: #333;
+   text-align: center;
+ }
+
+ .subheading{
+   font-size: 1.25rem;
+   margin-bottom: 1rem;
+   color: #333;
+   text-align: center;
  }
 
  .resendGroup{
@@ -112,21 +100,19 @@
    border: none;
    color: #000000;
    font-size: 0.8rem;
+   margin-bottom: 1rem;
+   font-weight: bold;
  }
 
 .resendButton:hover{
-   font-weight: bold;
+   text-decoration: underline;
 }
 
-.resendButtonDisabled{
+.resendButtonDisabled, .resendTime{
    color: #333;
    background-color: transparent;
    border: none;
-}
-.resendTime{
-   background-color: transparent;
-   border: none;
-   color: #333;
+   margin-bottom: 1rem;
 }
 
  .otpInput{
@@ -139,9 +125,25 @@
    background: white;
    text-align: center;
  }
- /* .flexRow{
-   display: flex;
-   flex-direction: row;
-   justify-content: left;
-   align-items: center;
+
+ .backButton{
+   cursor: pointer;
+   background-color: transparent;
+   border: none;
+   color: #000000;
+   font-size: 1.5rem;
+   margin-top: -1rem;
+   position: relative;
+   left: -10rem;
+ }
+
+ .text{
+   font-size: 1rem;
+   margin-bottom: 1rem;
+   color: #333;
+   text-align: center;
+ }
+/* 
+ .backButton:hover{
+   transform: scale(1.1);
  } */

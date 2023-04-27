@@ -22,22 +22,25 @@ const Verification = dynamic(
   { ssr: false }
 );
 
-const Form = ({setPage}) => {
+const Form = ({setPage, setData}) => {
   const [name, setName] = useState('');
   const [location, setLocation] = useState('');
   const [phone, setPhone] = useState('');
   const [contribute, setContribute] = useState(false);
-
   const router = useRouter();
 
   const handleForm = async (e) => {
     e.preventDefault();
-    const { result, error } = await verifyPhone('91' + phone);
+    const { result, error } = await verifyPhone('+91' + phone);
     // console.log(verifyPhone("+911234567890"))
-    console.log(result, error)
     console.log(result, error)
     if (result) {
       console.log
+      setData({
+        name: name,
+        location: location,
+        phone: phone,
+      })
       setPage(2)
     }
     else if (error) {
@@ -119,7 +122,7 @@ const Form = ({setPage}) => {
             </div>
           )}
           <div className={styles.formGroup}>
-            <button className={styles.submitButton} type="submit">Verify Phone Number</button>
+            <button className={styles.submitButton} type="submit" style={{alignItems: "center"}}>Verify Phone Number</button>
           </div>
         </form>
         <button id='verify-phone' className={styles.submitButton} onClick={
@@ -137,9 +140,10 @@ const Form = ({setPage}) => {
 
 export default function Home () {
   const [page, setPage] = useState(1);
+  const [data, setData] = useState(null);
   return (
     <div>
-      {page==1 ? <Form setPage={setPage}/> : <Verification setPage={setPage}/>}
+      {page==1 ? <Form setPage={setPage} setData={setData}/> : <Verification setPage={setPage} data={data}/>}
     </div>
   );
 }
