@@ -1,0 +1,18 @@
+{
+  "name": "rksh-website",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "firebase": "^9.20.0",
+    "firebaseui": "^6.0.2",
+    "next": "^13.3.1",
+    "otp-input-react": "^0.3.0",
+    "react-firebase-hooks": "^5.1.1"
+  }
+}
