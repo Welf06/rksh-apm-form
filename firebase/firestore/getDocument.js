@@ -9,11 +9,11 @@ export default async function getDocument(collection, id) {
     let error = null;
 
     try {
-        result = await getDoc(docRef);
-        result = result.data();
+        const res = await getDoc(docRef);
+        result = res.data();
     } catch (e) {
         error = e;
     }
-
+    // console.log(result, error)
     return { result, error };
 }

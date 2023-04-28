@@ -7,6 +7,6 @@ const db = getFirestore(firebase_app);
 export default async function documentExists(collection, id) {
   const docRef = doc(db, collection, id);
   const docSnap = await getDoc(docRef);
-  console.log(collection, id, docSnap.exists())
+  // console.log(collection, id, docSnap.exists())
   return docSnap.exists();
 }

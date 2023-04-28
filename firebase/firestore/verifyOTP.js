@@ -11,7 +11,7 @@ export default async function verifyOTP(otp) {
       .confirm(otp)
       .then((res) => {
          console.log('OTP confirmed');
-         console.log(res);
+         // console.log(res);
          result = res;
       }
       )

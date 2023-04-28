@@ -10,7 +10,6 @@ export default async function  verifyPhone(phoneNum) {
          {
             size: 'invisible',
             callback: async (response) => {
-               console.log("cum")
                // reCAPTCHA solved, allow signInWithPhoneNumber.
                // ...
             },
@@ -18,7 +17,7 @@ export default async function  verifyPhone(phoneNum) {
                // Response expired. Ask user to solve reCAPTCHA again.
                // ...
                console.log('reset captcha');
-               grecaptcha.reset(window.recaptchaWidgetId);
+               grecaptcha.reset(window.recaptchaVerifier);
             },
          },
          auth
@@ -34,8 +33,8 @@ export default async function  verifyPhone(phoneNum) {
    const confirmationResult = await signInWithPhoneNumber(auth, phoneNum, appVerifier)
       .then((res) => {
          console.log('should received SMS now');
-         console.log('confirmationResult');
-         console.log(res);
+         // console.log('confirmationResult');
+         // console.log(res);
          window.confirmationResult = res;
          result = true;
 
@@ -47,9 +46,6 @@ export default async function  verifyPhone(phoneNum) {
          error = err.message;
          // Error; SMS not sent
          // ...
-      })
-      .finally(() => {
-         window.document.querySelector('#recaptcha-container');
       })
       ;
       return { result, error };

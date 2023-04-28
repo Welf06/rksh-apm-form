@@ -81,10 +81,11 @@
  }
 
  .otpHeading, .heading{
-   font-size: 1.5rem;
+   font-size: 1.75rem;
    margin-bottom: 1rem;
    color: #333;
    text-align: center;
+   font-weight: 600;
  }
 
  .subheading{
@@ -107,7 +108,7 @@
    background-color: transparent;
    border: none;
    color: #000000;
-   font-size: 0.8rem;
+   font-size: 0.9rem;
    margin-bottom: 1rem;
    font-weight: bold;
  }

@@ -22,15 +22,15 @@ export default function SubmittedPage() {
       <>
       {submitted === 'true' ? (
          <div className={styles.submitBox}>
-            <div className={styles.subheading}>
+            <div className={styles.heading}>
                Congratulations!
             </div>
-            <div>
+            <div className={styles.subheading}>
                You have successfully applied for an APM Signal
             </div>
-            <div className={styles.text}>
+            <div className={styles.text} style={{marginTop: "2rem"}}>
                <span
-                  style={{ cursor: "pointer", fontWeight: "bold" }}
+                  style={{ cursor: "pointer", fontWeight: "500", textDecoration: "underline" }}
                   onClick={() => {
                      router.replace('/')
                      localStorage.setItem('submitted', false);
@@ -38,7 +38,11 @@ export default function SubmittedPage() {
                   }
                >Click here</span> to apply one more APM
             </div>
-            <div>
+            <div style={{
+               fontWeight: "500",
+               marginTop: "1.5rem",
+               marginBottom: "0rem",
+            }}>
                Share this and join the Revolution
             </div>
          </div>) :
