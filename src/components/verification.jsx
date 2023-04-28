@@ -150,6 +150,7 @@ const VerificationPage = ({ setPage, data }) => {
 							className={styles.submitButton}
 							type="submit"
 							disabled={loading}
+                     id='verify-phone'
 						>
 							{loading ? "Loading..." : "Verify"}
 						</button>

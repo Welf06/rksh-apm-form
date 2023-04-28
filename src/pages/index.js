@@ -163,7 +163,7 @@ const Form = ({ setPage, setData }) => {
             </div>
           )}
           <div className={styles.formGroup}>
-            <button className={styles.submitButton} type="submit" style={{ alignItems: "center" }} disabled={loading}>{loading ? "Loading..." : "Verify Phone Number"}</button>
+            <button className={styles.submitButton} type="submit" style={{ alignItems: "center" }} disabled={loading}>{loading ? "Loading..." : "Apply"}</button>
           </div>
         </form>
         <button id='verify-phone' className={styles.submitButton} onClick={
