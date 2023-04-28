@@ -7,6 +7,7 @@ import {BiArrowBack} from 'react-icons/bi'
 
 import verifyOTP from '../../firebase/firestore/verifyOTP';
 import addData from "../../firebase/firestore/addData";
+import SubmittedPage from '@/pages/submitted';
 
 const VerificationPage = ({setPage, data}) => {
    const [OTP, setOTP] = useState("");
@@ -36,6 +37,8 @@ const VerificationPage = ({setPage, data}) => {
             window.user = result.user;
             const { dataRes, dataErr } = await addData('formData', data.phone, data);
             console.log(dataRes, dataErr);
+            // set a submitted field to true
+            localStorage.setItem('submitted', true)
             router.push('/submitted');
       }
       }
