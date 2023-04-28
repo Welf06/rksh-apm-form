@@ -5,15 +5,17 @@ const db = getFirestore(firebase_app)
 export default async function addData(colllection, id, data) {
     let result = null;
     let error = null;
-    try {
-        result = await setDoc(doc(db, colllection, id), data, {
-            merge: true,
+    const res = await setDoc(doc(db, colllection, id), data, { merge: true, })
+        .then(() => {
+            console.log("Document successfully written!");
+            result = true
+        })
+        .catch((error) => {
+            console.error("Error writing document: ", error);
+            result = false
+            error = error
         });
-        result = true
-    } catch (e) {
-        result = false
-        error = e;
-    }
 
+    console.log(result, error)
     return { result, error };
 }

@@ -27,12 +27,13 @@ const Form = ({setPage, setData}) => {
   const [location, setLocation] = useState('');
   const [phone, setPhone] = useState('');
   const [contribute, setContribute] = useState(false);
+  const [loading , setLoading] = useState(false);
   const router = useRouter();
 
   const handleForm = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const { result, error } = await verifyPhone('+91' + phone);
-    // console.log(verifyPhone("+911234567890"))
     console.log(result, error)
     if (result) {
       console.log
@@ -44,6 +45,7 @@ const Form = ({setPage, setData}) => {
       setPage(2)
     }
     else if (error) {
+      setLoading(false)
       console.log(error)
     }
   }
@@ -57,7 +59,7 @@ const Form = ({setPage, setData}) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
-        <form className={styles.form} onSubmit={handleForm}>
+        <form className={styles.form} onSubmit={handleForm} autoComplete="off">
           <div className={styles.formGroup}>
             <label className={styles.label} htmlFor="name">Name*</label>
             <input
@@ -89,6 +91,7 @@ const Form = ({setPage, setData}) => {
               id="phone"
               name="phone"
               value={phone}
+              pattern='[0-9]{10}'
               onChange={(e) => setPhone(e.target.value)}
               required
             />
@@ -122,7 +125,7 @@ const Form = ({setPage, setData}) => {
             </div>
           )}
           <div className={styles.formGroup}>
-            <button className={styles.submitButton} type="submit" style={{alignItems: "center"}}>Verify Phone Number</button>
+            <button className={styles.submitButton} type="submit" style={{alignItems: "center"}} disabled={loading}>{loading ? "Loading...":"Verify Phone Number"}</button>
           </div>
         </form>
         <button id='verify-phone' className={styles.submitButton} onClick={

@@ -6,10 +6,13 @@ import OTPInput, { ResendOTP } from "otp-input-react";
 import {BiArrowBack} from 'react-icons/bi'
 
 import verifyOTP from '../../firebase/firestore/verifyOTP';
+import addData from "../../firebase/firestore/addData";
 
 const VerificationPage = ({setPage, data}) => {
    const [OTP, setOTP] = useState("");
    const [isResendDisabled, setIsResendDisabled] = useState(false);
+   const [loading, setLoading] = useState(false);
+
    const router = useRouter();
    const renderButton = (buttonProps) => {
       return <button className={!isResendDisabled? styles.resendButtonDisabled : styles.resendButton}{...buttonProps}>Resend OTP</button>;
@@ -22,14 +25,18 @@ const VerificationPage = ({setPage, data}) => {
 
    const handleForm = async (e) => {
       e.preventDefault();
-      console.log(OTP);
+      setLoading(true);
+      // console.log(OTP);
       
       if (OTP.length === 6) {
-      const {result, error} = await verifyOTP(OTP);
+      const { result, error } = await verifyOTP(OTP);
       console.log(result, error);
+
       if (result) {
-            window.user = result.user
-            router.push('/submitted')
+            window.user = result.user;
+            const { dataRes, dataErr } = await addData('formData', data.phone, data);
+            console.log(dataRes, dataErr);
+            router.push('/submitted');
       }
       }
    }
@@ -68,7 +75,7 @@ const VerificationPage = ({setPage, data}) => {
                   }} />
             </div>
             <div className={styles.formGroup} style={{alignItems: "center"}}>
-               <button className={styles.submitButton} type="submit">Verify Phone Number</button>
+               <button className={styles.submitButton} type="submit" disabled={loading}>{loading ? "Loading..." :"Verify"}</button>
             </div>
          </form>
       </main>
