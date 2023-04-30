@@ -107,7 +107,7 @@ const Form = ({ setPage, setData }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${styles.main}`}>
-        <div className={styles.heading} style={{marginBottom: "1rem"}}>
+        <div className={styles.heading} style={{marginBottom: "-4rem", marginTop:"5rem"}}>
           APM Signal Form
         </div>
         <form className={`${styles.form} ${styles.formPartContainer}`} onSubmit={handleForm} autoComplete="off">
