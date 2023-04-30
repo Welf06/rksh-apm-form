@@ -3,7 +3,7 @@ import { getAuth, RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth
 
 const auth = getAuth(firebase_app);
 export default async function verifyOTP(otp) {
-   console.log(window.confirmationResult);
+   // console.log(window.confirmationResult);
    const confirmationResult = window.confirmationResult;
    let error = null;
    let result = null;

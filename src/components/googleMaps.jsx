@@ -19,10 +19,10 @@ const center = {
 
 const Map = ({ setLocation }) => {
 	const [map, setMap] = useState(null);
-	const [markers, setMarkers] = useState([]);
+	const [markers, setMarkers] = useState(null);
 	const [currentLocation, setCurrentLocation] = useState(null);
 	const [searchBox, setSearchBox] = useState(null);
-	console.log(markers);
+	// console.log(markers);
 	useEffect(() => {
 		const geolocation = navigator.geolocation;
 
@@ -47,7 +47,8 @@ const Map = ({ setLocation }) => {
 
 		const bounds = new window.google.maps.LatLngBounds();
 		const newMarkers = [];
-
+      if (markers)
+      clearMarkers();
 		places.forEach((place) => {
 			if (!place.geometry) return;
 
@@ -76,6 +77,8 @@ const Map = ({ setLocation }) => {
 		bounds: map && map.getBounds(),
 	};
 	const handleMapClick = (e) => {
+      if (markers)
+      clearMarkers();
 		const newMarker = new window.google.maps.Marker({
 			position: { lat: e.latLng.lat(), lng: e.latLng.lng() },
 			map,
@@ -86,6 +89,12 @@ const Map = ({ setLocation }) => {
 			lng: e.latLng.lng(),
 		});
 	};
+
+   const clearMarkers = () => {
+    markers.forEach(marker => marker.setMap(null));
+    setMarkers([]);
+  };
+
 	return (
 		<LoadScript
 			googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
@@ -100,13 +109,11 @@ const Map = ({ setLocation }) => {
 					className={styles.mapContainer}
 					onClick={handleMapClick}
 				>
-					{markers.map((marker) => (
-                  console.log(markers),
-						<Marker
-							key={marker.getPosition().toString()}
-							position={marker.getPosition()}
-						/>
-					))}
+					{markers && <Marker
+                  className='map-icon'
+						key={markers[0].getPosition().toString()}
+						position={markers[0].getPosition()}
+					/>}
 					<StandaloneSearchBox
 						onLoad={(searchBox) => setSearchBox(searchBox)}
 						onPlacesChanged={onPlacesChanged}

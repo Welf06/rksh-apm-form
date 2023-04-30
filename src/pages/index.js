@@ -75,6 +75,7 @@ const Form = ({ setPage, setData }) => {
         name: name,
         orgName: orgName,
         phone: phone,
+        location: location,
       })
       setPage(2)
     }
@@ -106,7 +107,7 @@ const Form = ({ setPage, setData }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${styles.main}`}>
-        <div className={styles.heading}>
+        <div className={styles.heading} style={{marginBottom: "1rem"}}>
           APM Signal Form
         </div>
         <form className={`${styles.form} ${styles.formPartContainer}`} onSubmit={handleForm} autoComplete="off">
@@ -182,7 +183,7 @@ const Form = ({ setPage, setData }) => {
             <GoogleMaps setLocation={setLocation}/>
           </div>
         </form>
-        <button id='verify-phone' className={styles.submitButton} onClick={
+        {/* <button id='verify-phone' className={styles.submitButton} onClick={
           () => {
             addData('formData', "+91987643210", {
               phone: "9876543210",
@@ -201,7 +202,7 @@ const Form = ({ setPage, setData }) => {
         <div id="recaptcha-wrapper" className='wrapper'>
           <div id="recaptcha-container"></div>
         </div>
-        <BillingComponent />
+        <BillingComponent /> */}
       </main>
     </>
   );
