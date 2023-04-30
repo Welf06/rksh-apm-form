@@ -12,6 +12,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import styles from '@/styles/Form.module.css'
 
+import BillingComponent from '@/components/billingComponent'
+
 const Verification = dynamic(
   () => import("@/components/verification"),
   { ssr: false }
@@ -185,6 +187,7 @@ const Form = ({ setPage, setData }) => {
         <div id="recaptcha-wrapper" className='wrapper'>
           <div id="recaptcha-container"></div>
         </div>
+        <BillingComponent/>
       </main>
     </>
   );

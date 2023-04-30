@@ -8,7 +8,7 @@
    font-family: inherit;
    transition: border-color 200ms;
    max-width: 30rem;
-   margin: 10rem auto;
+   margin: 5rem auto;
  } @media (max-width: 768px) {
    .form, .otpForm, .submitBox{
      margin: 5rem auto;
