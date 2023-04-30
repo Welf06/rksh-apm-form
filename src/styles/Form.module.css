@@ -15,6 +15,8 @@
    }
  }
 
+
+
  .submitBox{
    text-align: center;
  }
@@ -25,6 +27,47 @@
    margin-bottom: 1rem;
    color: black;
  }
+
+ .formPartContainer {
+    /* flex-wrap: wrap; */
+    display: flex;
+    justify-content: left;
+    align-items: top;
+    margin: 5rem auto;
+    max-width: 100rem;
+    padding: 2rem;
+    height: 100%;
+    gap: 2rem;
+ }
+ .formMap{
+    width: 100%;
+ }
+ .formForm{
+    width: 33%;
+    margin-top: 2.5rem;
+ }
+ .form.formPartContainer {
+    max-width: 80rem;
+    min-height: 40rem;
+ }
+ .mapSearchBox{
+   box-sizing: border-box;
+   border: 1px solid transparent;
+  width: 25rem;
+  height: 40px;
+  padding: 0 12px;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  background-color: #ffffff;
+  font-size: 14px;
+  outline: none;
+  text-overflow: ellipses;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  margin-left: -120px;
+ }
+
 
  .label{
    font-size: 1rem;
