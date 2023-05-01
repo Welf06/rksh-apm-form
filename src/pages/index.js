@@ -107,8 +107,22 @@ const Form = ({ setPage, setData }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${styles.main}`}>
-        <div className={styles.heading} style={{marginBottom: "-4rem", marginTop:"5rem"}}>
+        <div className={styles.headingContainer}>
+        <div className={styles.logoContainer}>
+        <Image
+                  src="/images/logo.png"
+                  height={75} // Desired size with correct aspect ratio
+                  width={150} // Desired size with correct aspect ratio
+                  alt="logo"
+                  className={styles.logo}
+                />
+        </div>
+        <div className={styles.heading}>
           APM Signal Form
+        </div>
+        <div className={styles.dummyHeading}>
+
+        </div>
         </div>
         <form className={`${styles.form} ${styles.formPartContainer}`} onSubmit={handleForm} autoComplete="off">
           <div className={styles.formForm}>
@@ -168,7 +182,7 @@ const Form = ({ setPage, setData }) => {
               }}>
                 <div className={styles.qrText}>Scan the QR Code to pay</div>
                 <Image
-                  src="/images/SampleQRCode.png"
+                  src="/images/qrCode.jpeg"
                   height={150} // Desired size with correct aspect ratio
                   width={150} // Desired size with correct aspect ratio
                   alt="QR Code"
@@ -183,26 +197,6 @@ const Form = ({ setPage, setData }) => {
             <GoogleMaps setLocation={setLocation}/>
           </div>
         </form>
-        {/* <button id='verify-phone' className={styles.submitButton} onClick={
-          () => {
-            addData('formData', "+91987643210", {
-              phone: "9876543210",
-              orgName: "",
-              name: "A"
-            })
-              .then((res) => {
-                // console.log(res);
-              })
-              .catch((err) => {
-                console.log(err)
-                toast.error(err.message, toastOptions);
-              })
-          }
-        }>Sample</button>
-        <div id="recaptcha-wrapper" className='wrapper'>
-          <div id="recaptcha-container"></div>
-        </div>
-        <BillingComponent /> */}
       </main>
     </>
   );
