@@ -27,6 +27,7 @@ const Form = ({ setPage, setData }) => {
   const [contribute, setContribute] = useState(false);
   const [loading, setLoading] = useState(false);
   const [location, setLocation] = useState(null);
+  const [amount, setAmount] = useState(0);
 
   const router = useRouter();
   const toastOptions = {
@@ -76,6 +77,8 @@ const Form = ({ setPage, setData }) => {
         orgName: orgName,
         phone: phone,
         location: location,
+        datetime: new Date().toLocaleString(),
+        amount: amount,
       })
       setPage(2)
     }
