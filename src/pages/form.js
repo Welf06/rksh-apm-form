@@ -104,7 +104,7 @@ const Form = ({ setPage, setData }) => {
         theme="light"
       />
       <Head>
-        <title>Rksh Innovative Solutions</title>
+        <title>APM Form</title>
         <meta name="description" content="APM Signal Request" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
