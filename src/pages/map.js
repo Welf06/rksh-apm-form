@@ -41,8 +41,8 @@ export default function ApmMap() {
    }, []);
 
    const onLoad = async (map) => {
-      setMap(map);
       const data = await getAllDocuments();
+      setMap(map);
       const locationArray = data.map((item) => {
          return item.location;
       });
