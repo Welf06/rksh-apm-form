@@ -17,9 +17,10 @@ const containerStyle = {
 };
 
 const center = {
-   lat: 37.7749,
-   lng: -122.4194,
+	lat: 12.9716,
+	lng: 77.5946,
 };
+
 
 export default function ApmMap() {
    const [map, setMap] = useState(null);
@@ -92,7 +93,7 @@ export default function ApmMap() {
             <link rel="icon" href="/favicon.ico" />
          </Head>
          <main>
-            <div className={formstyles.heading}>APM Signal Requests</div>
+            <div className={`${formstyles.heading} ${styles.marginTop}`}>APM Signal Requests</div>
             <div className={styles.mapContainer}>
                <LoadScript
                   googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
@@ -112,7 +113,7 @@ export default function ApmMap() {
                               position={location}
                               icon={{
                                  url: '/images/ApmLogo.png',
-                                 scaledSize: new window.google.maps.Size(50, 50), // Adjust the size of the icon as per your requirement
+                                 scaledSize: new window.google.maps.Size(30, 30), // Adjust the size of the icon as per your requirement
                               }}
                            />
                         ))}

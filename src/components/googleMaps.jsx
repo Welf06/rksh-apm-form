@@ -13,8 +13,8 @@ const containerStyle = {
 };
 
 const center = {
-	lat: 37.7749,
-	lng: -122.4194,
+	lat: 12.9716,
+	lng: 77.5946,
 };
 
 const Map = ({ setLocation }) => {
@@ -47,8 +47,7 @@ const Map = ({ setLocation }) => {
 
 		const bounds = new window.google.maps.LatLngBounds();
 		const newMarkers = [];
-      if (markers)
-      clearMarkers();
+		if (markers) clearMarkers();
 		places.forEach((place) => {
 			if (!place.geometry) return;
 
@@ -77,8 +76,7 @@ const Map = ({ setLocation }) => {
 		bounds: map && map.getBounds(),
 	};
 	const handleMapClick = (e) => {
-      if (markers)
-      clearMarkers();
+		if (markers) clearMarkers();
 		const newMarker = new window.google.maps.Marker({
 			position: { lat: e.latLng.lat(), lng: e.latLng.lng() },
 			map,
@@ -90,10 +88,10 @@ const Map = ({ setLocation }) => {
 		});
 	};
 
-   const clearMarkers = () => {
-    markers.forEach(marker => marker.setMap(null));
-    setMarkers([]);
-  };
+	const clearMarkers = () => {
+		markers.forEach((marker) => marker.setMap(null));
+		setMarkers([]);
+	};
 
 	return (
 		<LoadScript
@@ -109,11 +107,13 @@ const Map = ({ setLocation }) => {
 					className={styles.mapContainer}
 					onClick={handleMapClick}
 				>
-					{markers && <Marker
-                  className='map-icon'
-						key={markers[0].getPosition().toString()}
-						position={markers[0].getPosition()}
-					/>}
+					{markers && (
+						<Marker
+							className="map-icon"
+							key={markers[0].getPosition().toString()}
+							position={markers[0].getPosition()}
+						/>
+					)}
 					<StandaloneSearchBox
 						onLoad={(searchBox) => setSearchBox(searchBox)}
 						onPlacesChanged={onPlacesChanged}
