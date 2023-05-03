@@ -34,12 +34,13 @@ export default async function  verifyPhone(phoneNum) {
       .then((res) => {
          console.log('should received SMS now');
          // console.log('confirmationResult');
-         // console.log(res);
+         console.log(res);
          window.confirmationResult = res;
          result = true;
 
       })
       .catch((err) => {
+         console.log(err)
          console.log('Error; SMS not sent');
          console.log(err.message);
          try{

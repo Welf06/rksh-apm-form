@@ -21,6 +21,7 @@ const center = {
 	lng: 77.5946,
 };
 
+const libraries = ["places"];
 
 export default function ApmMap() {
    const [map, setMap] = useState(null);
@@ -83,7 +84,6 @@ export default function ApmMap() {
       markers.forEach(marker => marker.setMap(null));
       setMarkers([]);
    };
-
    return (
       <>
          <Head>
@@ -97,7 +97,7 @@ export default function ApmMap() {
             <div className={styles.mapContainer}>
                <LoadScript
                   googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
-                  libraries={["places"]}
+                  libraries={libraries}
                >
                   <div style={{ height: "100%", width: "100%" }}>
                      <GoogleMap
@@ -113,7 +113,7 @@ export default function ApmMap() {
                               position={location}
                               icon={{
                                  url: '/images/ApmLogo.png',
-                                 scaledSize: new window.google.maps.Size(30, 30), // Adjust the size of the icon as per your requirement
+                                 scaledSize: new window.google.maps.Size(40, 40), // Adjust the size of the icon as per your requirement
                               }}
                            />
                         ))}

@@ -127,7 +127,7 @@ const Form = ({ setPage, setData }) => {
 
         </div>
         </div>
-        <form className={`${styles.form} ${styles.formPartContainer}`} onSubmit={handleForm} autoComplete="off">
+        <form className={`${styles.form} ${styles.formPartContainer}`} autoComplete="off">
           <div className={styles.formForm}>
             <div id="verify-phone"></div>
             <div className={styles.formGroup}>
@@ -193,7 +193,7 @@ const Form = ({ setPage, setData }) => {
                 />
               </div>
             <div className={styles.formGroup}>
-              <button className={styles.submitButton} type="submit" style={{ alignItems: "center" }} disabled={loading}>{loading ? "Loading..." : "Apply"}</button>
+              <button className={styles.submitButton} onClick={handleForm} style={{ alignItems: "center" }} disabled={loading}>{loading ? "Loading..." : "Apply"}</button>
             </div>
           </div>
           <div className={styles.formMap}>

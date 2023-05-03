@@ -17,6 +17,8 @@ const center = {
 	lng: 77.5946,
 };
 
+const libraries = ["places"];
+
 const Map = ({ setLocation }) => {
 	const [map, setMap] = useState(null);
 	const [markers, setMarkers] = useState(null);
@@ -96,7 +98,7 @@ const Map = ({ setLocation }) => {
 	return (
 		<LoadScript
 			googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
-			libraries={["places"]}
+			libraries={libraries}
 		>
 			<div style={{ height: "100%", width: "100%" }}>
 				<GoogleMap
