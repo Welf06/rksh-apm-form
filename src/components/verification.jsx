@@ -1,14 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState , useContext} from "react";
 import { useRouter } from "next/router";
 
+import { formData } from "../../context/context";
+
 import styles from "@/styles/Form.module.css";
+
 import OTPInput, { ResendOTP } from "otp-input-react";
 import { BiArrowBack } from "react-icons/bi";
 
 import verifyOTP from "../../firebase/firestore/verifyOTP";
-import verifyPhone from "../../firebase/firestore/verifyPhone";
 import addData from "../../firebase/firestore/addData";
-import SubmittedPage from "@/pages/submitted";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -17,6 +18,8 @@ const VerificationPage = ({ setPage, data }) => {
 	const [OTP, setOTP] = useState(null);
 	const [isResendDisabled, setIsResendDisabled] = useState(false);
 	const [loading, setLoading] = useState(false);
+	const { certificateData, setCertificateData } = useContext(formData);
+
 	const toastOptions = {
 		position: "top-center",
 		autoClose: 1000,
@@ -62,6 +65,7 @@ const VerificationPage = ({ setPage, data }) => {
 
 			if (result) {
 				window.user = result.user;
+				setCertificateData(data);
 				const { dataRes, dataErr } = await addData(
 					"formData",
 					data.phone,

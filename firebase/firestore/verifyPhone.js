@@ -42,7 +42,12 @@ export default async function  verifyPhone(phoneNum) {
       .catch((err) => {
          console.log('Error; SMS not sent');
          console.log(err.message);
+         try{
          grecaptcha.reset(window.recaptchaVerifier);
+         }
+         catch{
+            console.log('captcha reset error');
+         }
          error = err.message;
          // Error; SMS not sent
          // ...

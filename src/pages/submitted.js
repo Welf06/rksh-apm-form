@@ -2,6 +2,7 @@ import styles from '@/styles/Form.module.css'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import {useEffect, useState} from 'react'
+import CertificateGenerator from "@/components/certificate.jsx";
 
 export default function SubmittedPage() {
    let router = useRouter();
@@ -38,6 +39,9 @@ export default function SubmittedPage() {
                   }
                >Click here</span> to apply one more APM
             </div>
+            <div>
+               <CertificateGenerator />
+            </div>
             <div style={{
                fontWeight: "500",
                marginTop: "1.5rem",
@@ -45,6 +49,7 @@ export default function SubmittedPage() {
             }}>
                Share this and join the Revolution
             </div>
+            
          </div>) :
          (
             <div>
