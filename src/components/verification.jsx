@@ -1,7 +1,7 @@
 import { useEffect, useState , useContext} from "react";
 import { useRouter } from "next/router";
 
-import { formData } from "../../context/context";
+import { formContext } from "../../context/context";
 
 import styles from "@/styles/Form.module.css";
 
@@ -18,7 +18,7 @@ const VerificationPage = ({ setPage, data }) => {
 	const [OTP, setOTP] = useState(null);
 	const [isResendDisabled, setIsResendDisabled] = useState(false);
 	const [loading, setLoading] = useState(false);
-	const { certificateData, setCertificateData } = useContext(formData);
+	const { formData, setFormData } = useContext(formContext);
 
 	const toastOptions = {
 		position: "top-center",
@@ -65,7 +65,7 @@ const VerificationPage = ({ setPage, data }) => {
 
 			if (result) {
 				window.user = result.user;
-				setCertificateData(data);
+				setFormData(data);
 				const { dataRes, dataErr } = await addData(
 					"formData",
 					data.phone,

@@ -1,14 +1,14 @@
 import { createContext, useState } from "react";
 
-export const formData = createContext({});
+export const formContext = createContext({});
 
 function Context({ children }) {
-   const [message, setMessage] = useState();
+   const [formData, setFormData] = useState();
  
    return (
-     <formData.Provider value={{ message, setMessage }}>
+     <formContext.Provider value={{ formData, setFormData }}>
        {children}
-     </formData.Provider>
+     </formContext.Provider>
    );
  }
 

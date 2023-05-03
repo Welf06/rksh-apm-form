@@ -14,6 +14,7 @@ import styles from '@/styles/Form.module.css'
 
 import BillingComponent from '@/components/billingComponent'
 import GoogleMaps from '@/components/googleMaps';
+import {AiOutlineHome} from 'react-icons/ai'
 
 const Verification = dynamic(
   () => import("@/components/verification"),

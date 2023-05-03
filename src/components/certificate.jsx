@@ -1,17 +1,18 @@
 import jsPDF from 'jspdf';
-import { formData } from "../../context/context";
+import { formContext } from "../../context/context";
 import { useContext } from "react";
+import styles from '@/styles/Form.module.css'
 
 
 
 function Certificate() {
-   // const { certificateData } = useContext(formData);
-   // console.log(certificateData)
-   const certificateData = {
-      name: "Ganesh Nathan",
-      location: "Bangalore",
-      amount: "1000",
-   }
+   const { formData, setFormData } = useContext(formContext);
+   console.log(formData)
+   // const certificateData = {
+   //    name: "Ganesh Nathan",
+   //    location: "Bangalore",
+   //    amount: "1000",
+   // }
    const generatePDF = () => {
   const pdf = new jsPDF();
 
@@ -31,11 +32,11 @@ function Certificate() {
       <body>
         <h1>Certificate of Contribution</h1>
         <div>
-        This to certify that ${certificateData.name} has contributed towards transforming INDIA into an AMBULANCE friendly nation.
+        This to certify that ${formData.name} has contributed towards transforming INDIA into an AMBULANCE friendly nation.
         <br>
-        ${certificateData.name} has played a vital role in deploying an APM Signal at ${certificateData.location}.
+        ${formData.name} has played a vital role in deploying an APM Signal at ${formData.location}.
         <br>
-        We also thank ${certificateData.name} for contributing ₹1000 towards this new revolutionary change.
+        We also thank ${formData.name} for contributing ${formData.amount} towards this new revolutionary change.
         </div>
         <br>
         <br>
@@ -60,8 +61,14 @@ function Certificate() {
 }
   return (
     <div>
-      <div onClick={generatePDF}>Generate PDF</div>
+      <div className={styles.text} style={{marginTop: "2rem"}}>
+      Please Download your certificate
+      </div>
+      <button className={styles.submitButton} onClick={generatePDF}>
+         Download
+      </button>
     </div>
+
   );
 }
 
