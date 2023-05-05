@@ -21,10 +21,16 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: baseline;
-  max-width: 100rem;
+  max-width: 40rem;
   margin: auto;
-  padding-left: 7.5rem;
+  padding: 0rem 1rem;
+  flex-wrap: wrap;
   margin-bottom: -5rem;
+ }@media (max-width: 426px) {
+   .headingContainer{
+     justify-content: center;
+     gap: 1rem;
+   }
  }
 
 
@@ -55,12 +61,11 @@
     width: 100%;
  }
  .formForm{
-    width: 33%;
+    width: 100%;
     margin-top: 2.5rem;
  }
  .form.formPartContainer {
-    max-width: 80rem;
-    min-height: 40rem;
+    max-width: 40rem;
  }
  .mapSearchBox{
    box-sizing: border-box;
@@ -74,11 +79,15 @@
   font-size: 14px;
   outline: none;
   text-overflow: ellipses;
-  position: absolute;
+  position: relative;
   top: 10px;
-  left: 50%;
-  margin-left: -120px;
+  left: 10px;
+ } @media screen and (max-width: 768px) {
+   .mapSearchBox{
+     width: 50vw;
+   }
  }
+
 
 
  .label{

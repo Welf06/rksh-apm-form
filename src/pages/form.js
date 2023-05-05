@@ -124,9 +124,6 @@ const Form = ({ setPage, setData }) => {
         <div className={styles.heading}>
           APM Signal Form
         </div>
-        <div className={styles.dummyHeading}>
-
-        </div>
         </div>
         <form className={`${styles.form} ${styles.formPartContainer}`} autoComplete="off">
           <div className={styles.formForm}>
@@ -193,12 +190,16 @@ const Form = ({ setPage, setData }) => {
                   className={styles.qrCode}
                 />
               </div>
+              <div className={styles.formGroup}>
+              <label className={styles.label}>Location (Select on Map)*</label>
+              <div className={styles.formMap}>
+            <GoogleMaps setLocation={setLocation}/>
+          </div>
+            </div>
+  
             <div className={styles.formGroup}>
               <button className={styles.submitButton} onClick={handleForm} style={{ alignItems: "center" }} disabled={loading}>{loading ? "Loading..." : "Apply"}</button>
             </div>
-          </div>
-          <div className={styles.formMap}>
-            <GoogleMaps setLocation={setLocation}/>
           </div>
         </form>
       </main>

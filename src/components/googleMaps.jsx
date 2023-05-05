@@ -9,7 +9,8 @@ import styles from "@/styles/Form.module.css";
 
 const containerStyle = {
 	width: "100%",
-	height: "inherit",
+	height: "30rem",
+   marginBottom: "2rem",
 };
 
 const center = {
