@@ -10,15 +10,19 @@ import { useRouter } from 'next/router';
 export default function Dashboard() {
    const router = useRouter();
    const [loading, setLoading] = useState();
-   const [pageLoading, setPageLoading] = useState(false);
+   const [pageLoading, setPageLoading] = useState(true);
    const [tableData, setTableData] = useState([]);
    useEffect(() => {
+      if (!auth.currentUser || !auth.currentUser.email) {
+         router.replace('/admin')
+      }
       auth.onAuthStateChanged((user) => {
          if (!user) {
             router.replace('/admin')
          }
       })
-      setLoading(true)
+      setLoading(true);
+      setPageLoading(false);
       getAllDocuments().then((data) => {
          console.log(data)
          setTableData(data)

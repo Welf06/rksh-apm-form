@@ -17,11 +17,13 @@ const Form = ({ setPage, setData }) => {
    const [password, setPassword] = useState('');
    const [loading, setLoading] = useState(false);
    useEffect(() => {
-      // console.log(auth.currentUser )
-      if (auth.currentUser && auth.currentUser.email) {
-         router.replace('/admin/dashboard')
-      }
-   })
+      console.log(auth.currentUser)
+      auth.onAuthStateChanged((user) => {
+         if (user && user.email) {
+            router.replace('/admin/dashboard')
+         }
+      })
+   }, [])
    const router = useRouter();
    const toastOptions = {
       position: "top-center",
