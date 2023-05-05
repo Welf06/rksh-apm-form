@@ -17,7 +17,8 @@ const Form = ({ setPage, setData }) => {
    const [password, setPassword] = useState('');
    const [loading, setLoading] = useState(false);
    useEffect(() => {
-      if (auth.currentUser) {
+      // console.log(auth.currentUser )
+      if (auth.currentUser && auth.currentUser.email) {
          router.replace('/admin/dashboard')
       }
    })
