@@ -3,7 +3,7 @@ import firebase_app from "../config";
 
 export default async function getAllDocuments(collectionName, id) {
    const db = getFirestore(firebase_app)
-   const querySnapshot = await getDocs(collection(db, "formData"));
+   const querySnapshot = await getDocs(collection(db, "apm-request-form-data"));
 
    const data = [];
    querySnapshot.forEach((doc) => {

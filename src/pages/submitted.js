@@ -73,7 +73,7 @@ export default function SubmittedPage() {
                      <span
                         style={{ cursor: "pointer", fontWeight: "500", textDecoration: "underline" }}
                         onClick={() => {
-                           router.replace('/')
+                           router.replace('/form')
                            localStorage.setItem('submitted', false);
                         }
                         }
@@ -83,7 +83,7 @@ export default function SubmittedPage() {
                      <span
                         style={{ cursor: "pointer", fontWeight: "500", textDecoration: "underline" }}
                         onClick={() => {
-                           router.replace('/map')
+                           router.push('/map')
                            // localStorage.setItem('submitted', false);
                         }
                         }

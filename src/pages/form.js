@@ -14,7 +14,7 @@ import styles from '@/styles/Form.module.css'
 
 import BillingComponent from '@/components/billingComponent'
 import GoogleMaps from '@/components/googleMaps';
-import {AiOutlineHome} from 'react-icons/ai'
+import { AiOutlineHome } from 'react-icons/ai'
 
 const Verification = dynamic(
   () => import("@/components/verification"),
@@ -64,8 +64,8 @@ const Form = ({ setPage, setData }) => {
       setLoading(false);
       return;
     }
-    
-    if(!location){
+
+    if (!location) {
       toast.error("Please select a location", toastOptions);
       setLoading(false);
       return;
@@ -112,22 +112,21 @@ const Form = ({ setPage, setData }) => {
       </Head>
       <main className={`${styles.main}`}>
         <div className={styles.headingContainer}>
-        <div className={styles.logoContainer}>
-        <Image
-                  src="/images/logo.png"
-                  height={75} // Desired size with correct aspect ratio
-                  width={150} // Desired size with correct aspect ratio
-                  alt="logo"
-                  className={styles.logo}
-                />
-        </div>
-        <div className={styles.heading}>
-          APM Signal Form
-        </div>
+          <div className={styles.logoContainer}>
+            <Image
+              src="/images/logo.png"
+              height={75} // Desired size with correct aspect ratio
+              width={150} // Desired size with correct aspect ratio
+              alt="logo"
+              className={styles.logo}
+            />
+          </div>
+          <div className={styles.heading}>
+            APM Signal Form
+          </div>
         </div>
         <form className={`${styles.form} ${styles.formPartContainer}`} autoComplete="off">
           <div className={styles.formForm}>
-            <div id="verify-phone"></div>
             <div className={styles.formGroup}>
               <label className={styles.label} htmlFor="name">Name*</label>
               <input
@@ -162,6 +161,13 @@ const Form = ({ setPage, setData }) => {
                 onChange={(e) => setPhone(e.target.value)}
               />
             </div>
+
+            <div className={styles.formGroup}>
+              <label className={styles.label}>Location (Select on Map)*</label>
+              <div className={styles.formMap}>
+                <GoogleMaps setLocation={setLocation} />
+              </div>
+            </div>
             <div className={`${styles.formGroup}`} >
               <label className={styles.label} htmlFor="check">
                 <input
@@ -178,25 +184,19 @@ const Form = ({ setPage, setData }) => {
                 />
                 I would like to contribute</label>
             </div>
-              <div className={styles.qrContainer} style={{
-                visibility: contribute ? "visible" : "hidden",
-              }}>
-                <div className={styles.qrText}>Scan the QR Code to pay</div>
-                <Image
-                  src="/images/qrCode.jpeg"
-                  height={150} // Desired size with correct aspect ratio
-                  width={150} // Desired size with correct aspect ratio
-                  alt="QR Code"
-                  className={styles.qrCode}
-                />
-              </div>
-              <div className={styles.formGroup}>
-              <label className={styles.label}>Location (Select on Map)*</label>
-              <div className={styles.formMap}>
-            <GoogleMaps setLocation={setLocation}/>
-          </div>
+            <div className={styles.qrContainer} style={{
+              visibility: contribute ? "visible" : "hidden",
+            }}>
+              <div className={styles.qrText}>Scan the QR Code to pay</div>
+              <Image
+                src="/images/qrCode.jpeg"
+                height={150} // Desired size with correct aspect ratio
+                width={150} // Desired size with correct aspect ratio
+                alt="QR Code"
+                className={styles.qrCode}
+              />
             </div>
-  
+            <div id="verify-phone"></div>
             <div className={styles.formGroup}>
               <button className={styles.submitButton} onClick={handleForm} style={{ alignItems: "center" }} disabled={loading}>{loading ? "Loading..." : "Apply"}</button>
             </div>

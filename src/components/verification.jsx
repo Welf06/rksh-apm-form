@@ -67,7 +67,7 @@ const VerificationPage = ({ setPage, data }) => {
 				window.user = result.user;
 				setFormData(data);
 				const { dataRes, dataErr } = await addData(
-					"formData",
+					"apm-request-form-data",
 					data.phone,
 					data
 				);
