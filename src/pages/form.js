@@ -122,7 +122,7 @@ const Form = ({ setPage, setData }) => {
             />
           </div>
           <div className={styles.heading}>
-            APM Signal 
+            APM Signal Form
           </div>
         </div>
         <form className={`${styles.form} ${styles.formPartContainer}`} autoComplete="off">
