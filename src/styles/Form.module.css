@@ -247,3 +247,10 @@
   max-width: 80rem;
   margin: auto;
  }
+
+ .submitBoxLogoContainer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+ }

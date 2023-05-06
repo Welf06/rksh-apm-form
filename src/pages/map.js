@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import dynamic from 'next/dynamic'
+const CountUp = dynamic(() => import('react-countup'), { ssr: false })
+
 import {
    GoogleMap,
    LoadScript,
@@ -17,8 +20,8 @@ const containerStyle = {
 };
 
 const center = {
-	lat: 12.9716,
-	lng: 77.5946,
+   lat: 12.9716,
+   lng: 77.5946,
 };
 
 const libraries = ["places"];
@@ -28,6 +31,7 @@ export default function ApmMap() {
    const [markers, setMarkers] = useState(null);
    const [currentLocation, setCurrentLocation] = useState(null);
    const [searchBox, setSearchBox] = useState(null);
+   const [count, setCount] = useState(0);
 
    useEffect(() => {
       const geolocation = navigator.geolocation;
@@ -55,7 +59,7 @@ export default function ApmMap() {
       //       map,
       //    });
       // });
-
+      setCount(locationArray.length - 1);
       setMarkers(locationArray);
    };
 
@@ -94,6 +98,23 @@ export default function ApmMap() {
          </Head>
          <main>
             <div className={`${formstyles.heading} ${styles.marginTop}`}>APM Signal Requests</div>
+            <div>
+               {count > 0 && (
+                  <div className={styles.count}>
+                     <CountUp start={1} end={count} delay={0}>
+                        {({ countUpRef }) => (
+                           <div>
+                              <span className={styles.countNumber} ref={countUpRef}></span>
+                              {/* <span className={styles.countNumber}>+</span> */}
+                     <span className={styles.countText}> Signal Requests </span>
+                           </div>
+                        )}
+                     </CountUp>
+                   
+
+                  </div>)
+               }
+            </div>
             <div className={styles.mapContainer}>
                <LoadScript
                   googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}

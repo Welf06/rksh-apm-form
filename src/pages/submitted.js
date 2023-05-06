@@ -1,5 +1,6 @@
 import styles from '@/styles/Form.module.css'
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react'
 import CertificateGenerator from "@/components/certificate.jsx";
@@ -53,6 +54,13 @@ export default function SubmittedPage() {
          {submitted === 'true' ? (
             <>
                <div className={styles.submitBox}>
+               <div className={styles.submitBoxLogoContainer}>
+               <Image
+                     src="/images/logo.png"
+                     alt="Rksh Impact Logo"
+                     width={100}
+                     height={50}
+                  />
                <Link href="https://rkshimpact.com/">
                   <div className={styles.homeButton} onClick={() => {
                      localStorage.setItem('submitted', false);
@@ -60,6 +68,7 @@ export default function SubmittedPage() {
                   }}><ImCross />
                   </div>
                   </Link>
+                  </div>
                   <div className={styles.heading}>
                      Congratulations!
                   </div>
