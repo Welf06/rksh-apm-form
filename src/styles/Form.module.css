@@ -153,12 +153,20 @@
    font-weight: 600;
  }
 
+ .submitBox .heading{
+    margin-bottom: 1.5rem;
+ }
+
  .subheading{
    font-size: 1.25rem;
    margin-bottom: 1rem;
    color: #333;
    text-align: center;
  }
+
+ .submitBox .subheading{
+  margin-bottom: 2rem;
+}
 
  .resendGroup{
    display: flex;

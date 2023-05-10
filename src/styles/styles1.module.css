@@ -1,0 +1,85 @@
+.certificate {
+   margin: auto;
+   width: 80%;
+   padding: 10px;
+   font-family: Arial, sans-serif;
+   font-size: 12px;
+   text-align: center;
+   
+ }
+ 
+ .logoContainer {
+   text-align: center;
+   margin-bottom: 10rem;
+ }
+ 
+ .logo {
+   max-width: 200px;
+   max-height: 200px;
+ }
+ 
+ .heading {
+   font-size: 2rem;
+   font-weight: bold;
+   margin-bottom: 5rem;
+ }
+ 
+ .body {
+   font-size: 1rem;
+   margin-bottom: 5rem;
+ }
+
+ .amount{
+  margin-top: 1rem;
+  font-size: 1rem;
+ }
+ /* .heading {
+   font-size: 32px;
+   font-weight: bold;
+   margin-bottom: 20px;
+ }
+ 
+ .body {
+   margin-bottom: 20px;
+   line-height: 1.5;
+ } */
+ 
+ .name {
+   font-weight: bold;
+ }
+ 
+ .donation {
+   font-weight: bold;
+   color: #337ab7;
+ }
+
+ .sign {
+  margin: 1rem;
+  margin-top: 2rem;
+  margin-bottom: -1rem;
+   max-width: 6rem;
+   max-height: 6rem;
+ }
+
+ .footnotes{
+   text-align: left;
+ }
+
+ .signNote{
+    font-size: 0.8rem;
+    margin-top: 0rem;
+ }
+ 
+ .watermark {
+   position: absolute;
+   bottom: -250;
+   right: 150;
+   width: 420px;
+   height: 420px;
+   /* background: url(./imgs/logo.jpeg) no-repeat; */
+   background-size: contain;
+   opacity: 0.3;
+   text-align: right;
+ }
+ 
+ 
