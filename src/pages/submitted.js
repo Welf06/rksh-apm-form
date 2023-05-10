@@ -28,7 +28,7 @@ const toastOptions = {
 export default function SubmittedPage() {
    let router = useRouter();
 
-   const [submitted, setSubmitted] = useState('false');
+   const [submitted, setSubmitted] = useState(null);
 
    useEffect(() => {
       setSubmitted(localStorage.getItem('submitted'));
